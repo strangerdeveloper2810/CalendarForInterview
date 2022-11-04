@@ -1,5 +1,8 @@
 import { OPEN_MODAL, HIDE_MODAL } from "../constants/ModalCalendarConstants";
-import { OPEN_FORM_EDIT_EVENT } from "../constants/FormCalendarConstants";
+import {
+  OPEN_FORM_EDIT_EVENT,
+  OPEN_FORM_ADD_EVENT,
+} from "../constants/FormCalendarConstants";
 const initialState = {
   visible: false,
   ComponentModal: <p>Default content</p>,
@@ -18,6 +21,9 @@ const ModalCalendarReducer = (state = initialState, action) => {
       return { ...state, visible: false };
     }
     case OPEN_FORM_EDIT_EVENT: {
+      return { ...state, visible: true, ComponentModal: action.Component };
+    }
+    case OPEN_FORM_ADD_EVENT: {
       return { ...state, visible: true, ComponentModal: action.Component };
     }
     default:

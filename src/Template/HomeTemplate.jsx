@@ -2,7 +2,10 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import { Calendar, Badge } from "antd";
 import { useSelector, useDispatch } from "react-redux";
-import { openFormEditEventAction } from "../redux/actions/CalendarActions";
+import {
+  openFormAddEventAction,
+  openFormEditEventAction,
+} from "../redux/actions/CalendarActions";
 export default function HomeTemplate(props) {
   let listData = useSelector((state) => state.Calendar.listData);
   const dispatch = useDispatch();
@@ -25,7 +28,13 @@ export default function HomeTemplate(props) {
     return (
       <ul className="events">
         {listEvent.map((item) => (
-          <li key={item.content} style={{ listStyleType: "none" }}>
+          <li
+            key={item.content}
+            style={{ listStyleType: "none" }}
+            onSelect={() => {
+              dispatch(openFormAddEventAction());
+            }}
+          >
             <Badge status={item.type} text={item.content} />
           </li>
         ))}
@@ -35,9 +44,12 @@ export default function HomeTemplate(props) {
 
   return (
     <div className="container">
-      <Calendar dateCellRender={dateCellRender} onSelect={()=>{
-        dispatch(openFormEditEventAction());
-      }}/>
+      <Calendar
+        dateCellRender={dateCellRender}
+        onSelect={() => {
+          dispatch(openFormEditEventAction());
+        }}
+      />
       <Outlet />
     </div>
   );
