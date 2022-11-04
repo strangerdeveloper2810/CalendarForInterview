@@ -1,10 +1,11 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import { Calendar, Badge } from "antd";
-import { useSelector } from "react-redux";
-
+import { useSelector, useDispatch } from "react-redux";
+import { openFormEditEventAction } from "../redux/actions/CalendarActions";
 export default function HomeTemplate(props) {
   let listData = useSelector((state) => state.Calendar.listData);
+  const dispatch = useDispatch();
   const getListData = (value) => {
     let listEvent;
     switch (value.date()) {
@@ -34,7 +35,9 @@ export default function HomeTemplate(props) {
 
   return (
     <div className="container">
-      <Calendar dateCellRender={dateCellRender} />
+      <Calendar dateCellRender={dateCellRender} onSelect={()=>{
+        dispatch(openFormEditEventAction());
+      }}/>
       <Outlet />
     </div>
   );

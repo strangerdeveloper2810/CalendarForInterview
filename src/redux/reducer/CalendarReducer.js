@@ -1,4 +1,3 @@
-import { createSlice } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
 const initialState = {
   listData: [
@@ -16,12 +15,14 @@ const initialState = {
   ],
 };
 
-const CalendarReducer = createSlice({
-  name: "CalendarReducer",
-  initialState,
-  reducers: {},
-});
+const CalendarReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case "":
+      return { ...state };
 
-export const {} = CalendarReducer.actions;
+    default:
+      return state;
+  }
+};
 
-export default CalendarReducer.reducer;
+export default CalendarReducer;

@@ -1,9 +1,10 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { createStore, combineReducers } from "redux";
 import CalendarReducer from "./reducer/CalendarReducer";
-const store = configureStore({
-  reducer: {
-    Calendar: CalendarReducer,
-  },
+import ModalCalendarReducer from "./reducer/ModalCalendarReducer";
+const rootReducer = combineReducers({
+  Calendar: CalendarReducer,
+  ModalCalendar: ModalCalendarReducer,
 });
+const store = createStore(rootReducer);
 
 export default store;
