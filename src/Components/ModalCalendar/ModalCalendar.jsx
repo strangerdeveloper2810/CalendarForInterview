@@ -17,7 +17,7 @@ export default function ModalCalendar(props) {
   return (
     <>
       <Drawer
-        title="Create a new event"
+      title="Create New Event"
         width={720}
         onClose={onClose}
         open={visible}

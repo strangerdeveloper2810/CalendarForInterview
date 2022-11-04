@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
       <div className="container">
         <ModalCalendar />
-        <ModalEditEventCalendar/>
+        <ModalEditEventCalendar />
         <Routes>
           <Route path="" element={<HomeTemplate />} />
           <Route path="home"></Route>

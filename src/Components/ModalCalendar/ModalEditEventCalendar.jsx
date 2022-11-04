@@ -3,8 +3,8 @@ import { Button, Drawer, Space } from "antd";
 import { HIDE_MODAL } from "../../redux/constants/ModalCalendarConstants";
 import { useDispatch, useSelector } from "react-redux";
 export default function ModalEditEventCalendar(props) {
-  const { visible, ComponentModal, callBackSubmit } = useSelector(
-    (state) => state.ModalCalendar
+  const { visible, ComponentModalEdit, callBackSubmit } = useSelector(
+    (state) => state.FormCalenDar
   );
 
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ export default function ModalEditEventCalendar(props) {
           </Space>
         }
       >
-        {ComponentModal}
+        {ComponentModalEdit}
       </Drawer>
     </>
   );
