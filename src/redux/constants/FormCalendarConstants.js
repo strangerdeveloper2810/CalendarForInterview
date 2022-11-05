@@ -1,3 +1,5 @@
 export const OPEN_FORM_ADD_EVENT = "OPEN_FORM_ADD_EVENT";
 
 export const OPEN_FORM_EDIT_EVENT = "OPEN_FORM_EDIT_EVENT";
+
+export const ADD_EVENT = "ADD_EVENT";
